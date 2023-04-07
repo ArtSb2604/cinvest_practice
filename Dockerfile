@@ -17,6 +17,7 @@ COPY /internship ./internship
 COPY /users ./users
 COPY /templates ./templates
 COPY /static ./static
+COPY /chat ./chat
 COPY /db.sqlite3 ./db.sqlite3
 
 RUN pip install --upgrade pip && pip wheel --no-cache-dir --no-deps --wheel-dir /app/wheels -r requirements.txt
@@ -32,6 +33,7 @@ COPY --from=builder /app/internship ./internship
 COPY --from=builder /app/users ./users
 COPY --from=builder /app/templates ./templates
 COPY --from=builder /app/static ./static
+COPY --from=builder /app/chat ./chat
 COPY --from=builder /app/db.sqlite3 ./db.sqlite3
 
 RUN pip install --no-cache /wheels/* && python manage.py makemigrations && python manage.py migrate && python manage.py collectstatic --noinput
