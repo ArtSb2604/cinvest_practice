@@ -22,7 +22,7 @@ class User(AbstractUser):
     work_experience = models.CharField(verbose_name='Если у вас есть опыт работы/стажировки, расскажите об этом подробнее',max_length=100)
     find_out = models.CharField(verbose_name='Откуда вы узнали о стажировках в Банке Центр-Инвест', max_length=100)
     interested_internship = models.CharField(verbose_name='Почему вас заинтересовала стажировка в Банке Центр-Инвест, и чего вы от неё ждёте?', max_length=100)
-    resume = models.FileField(verbose_name='Добавьте резюме')
+    resume = models.FileField(verbose_name='Добавьте резюме', blank=True, null=True)
 
     def __str__(self):
         return f"{self.last_name} {self.first_name} {self.patronymic}"
