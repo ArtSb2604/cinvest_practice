@@ -1,3 +1,8 @@
-from django.shortcuts import render
+from django.views import generic
+from users.models import User
 
-# Create your views here.
+
+class UserAdminListView(generic.ListView):
+    model = User
+    context_object_name = 'Cards'
+    template_name = 'users/admin-user.html'
