@@ -4,7 +4,6 @@ EXPOSE 443
 WORKDIR /app
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
-RUN apk --update add gcc libc-dev libffi-dev jpeg-dev zlib-dev libjpeg musl-dev g++ freetype-dev postgresql-dev
 COPY requirements.txt .
 COPY .env .
 COPY manage.py .

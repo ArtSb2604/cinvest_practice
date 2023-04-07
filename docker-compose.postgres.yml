@@ -2,10 +2,8 @@ version: '3.8'
 services:
   postgres:
     image: postgres:15-alpine
-    container_name: postgres_practice
+    container_name: postgresql
     environment:
-      POSTGRES_DB: "postgres"
+      POSTGRES_DB: "practice"
       POSTGRES_USER: "postgres"
       POSTGRES_PASSWORD: "postgres"
-    ports:
-      - "5433:5433"
