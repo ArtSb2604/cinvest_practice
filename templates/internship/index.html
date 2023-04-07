@@ -1,0 +1,77 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Стажировака в Банк Центр-инвест</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+<header>
+    <div class="logo">
+        <img src="{% static 'img/logo.svg' %}" alt="Банк Центр-инвест">
+    </div>
+    <div class="catalog">
+        <nav>Направления</nav>
+        <nav>Условия</nav>
+        <nav>Отбор</nav>
+    </div>
+    <div class="statement">
+        <button>Подать заявку</button>
+    </div>
+</header>
+<main>
+    <div class="header-promo">
+        <img src="{% static 'img/header_prom.png' %}" alt="">
+    </div>
+    <section class="info">
+        <div class="info-statement">
+            Стажировка в Банк Центр-инвест
+            <div class="applic">
+                <a href="submit-applic">Подать заявку</a>
+            </div>
+        </div>
+    </section>
+    <section class="info-set_container">
+        <div class="info-set">
+            <div>Открыт осенний набор на оплачиваемую стажировку. Подавайте заявки!</div>
+        </div>
+        <div class="info-category">
+            <nav class="active">iOS разработчик</nav>
+            <nav>Системный аналитик</nav>
+            <nav>Администратор баз данных</nav>
+            <nav>Разработчик баз данных</nav>
+        </div>
+        <div class="container_info-category-detailed">
+            <div class="info-category-detailed">Информация</div>
+            <div class="info-category-detailed">Информация</div>
+            <div class="info-category-detailed">Информация</div>
+            <div class="info-category-detailed">Информация</div>
+            <div class="info-category-detailed">Информация</div>
+        </div>
+        <div class="main_prom">
+            <img src="{% static 'img/main_prom.png' %}" alt="">
+        </div>
+    </section>
+    <section class="info-skill">
+        <h1>Что надо уметь</h1>
+        <div>
+            Всем стажёрам нужны отличные знания базовых алгоритмов и структур данных, а также умение писать код на одном
+            из языков программирования. Остальные требования зависят от направления. Например, аналитику необходимо
+            хорошо знать математическую статистику и Python, а разработчику ML — основные методы машинного обучения и их
+            применение на практике. При отборе кандидатов мы обращаем внимание на анкеты и достижения. Не стесняйтесь
+            писать о своих успехах: победах на олимпиадах, высокой успеваемости, публикациях на конференциях и так
+            далее.
+        </div>
+    </section>
+    <div class="fotter_promo">
+        <img src="{% static 'img/fotter_prom.png' %}" alt="">
+    </div>
+</main>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+{#<script src="{% static 'js/nav_active.js' %}"></script>#}
+</body>
+</html>

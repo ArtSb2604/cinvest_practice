@@ -2,4 +2,3 @@
 .idea
 .git
 /venv
-db.sqlite3

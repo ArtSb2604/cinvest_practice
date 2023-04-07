@@ -13,6 +13,11 @@ COPY requirements.txt .
 COPY .env .
 COPY manage.py .
 COPY /settings ./settings
+COPY /internship ./internship
+COPY /users ./users
+COPY /templates ./templates
+COPY /static ./static
+COPY /db.sqlite3 ./db.sqlite3
 
 RUN pip install --upgrade pip && pip wheel --no-cache-dir --no-deps --wheel-dir /app/wheels -r requirements.txt
 FROM python:3.10-alpine
@@ -23,6 +28,11 @@ COPY --from=builder /app/requirements.txt .
 COPY --from=builder /app/.env .
 COPY --from=builder /app/manage.py .
 COPY --from=builder /app/settings ./settings
+COPY --from=builder /app/internship ./internship
+COPY --from=builder /app/users ./users
+COPY --from=builder /app/templates ./templates
+COPY --from=builder /app/static ./static
+COPY --from=builder /app/db.sqlite3 ./db.sqlite3
 
-RUN pip install --no-cache /wheels/* && python manage.py makemigrations && python manage.py migrate && python manage.py collectstatic
+RUN pip install --no-cache /wheels/* && python manage.py makemigrations && python manage.py migrate && python manage.py collectstatic --noinput
 CMD ["gunicorn", "settings.wsgi:application", "-b", ":8000"]

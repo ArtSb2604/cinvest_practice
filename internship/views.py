@@ -1,3 +1,9 @@
-from django.shortcuts import render
+from django.views import generic
 
-# Create your views here.
+from internship.models import Directions
+
+
+class HomeListView(generic.ListView):
+    model = Directions
+    context_object_name = 'Cards'
+    template_name = 'internship/index.html'
