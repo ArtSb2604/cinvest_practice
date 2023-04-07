@@ -4,10 +4,14 @@ services:
     container_name: web
     build: .
     ports:
-      - "8000:8000"
+      - "7776:7776"
     volumes:
       - static_volume:/app/staticfiles
       - media_volume:/app/media
+    command: >
+      sh -c " python manage.py makemigrations &&
+              python manage.py migrate &&
+              gunicorn settings.wsgi:application -b :7776"
 
 volumes:
   media_volume:
