@@ -21,7 +21,7 @@
         <nav>Отбор</nav>
     </div>
     <div class="statement">
-        <button>Подать заявку</button>
+        <button onclick="switchOpen()">Подать заявку</button>
     </div>
 </header>
 <main>
@@ -32,7 +32,7 @@
         <div class="info-statement">
             Стажировка в Банк Центр-инвест
             <div class="applic">
-                <a href="submit-applic">Подать заявку</a>
+                <a id="modal-open" onclick="switchOpen()">Подать заявку</a>
             </div>
         </div>
     </section>
@@ -40,14 +40,35 @@
         <div class="info-set">
             <div>Открыт осенний набор на оплачиваемую стажировку. Подавайте заявки!</div>
         </div>
-        <div class="info-category">
-            <nav class="active">iOS разработчик</nav>
-            <nav>Системный аналитик</nav>
-            <nav>Администратор баз данных</nav>
-            <nav>Разработчик баз данных</nav>
-        </div>
-        <div class="container_info-category-detailed">
+        <nav class="info-category">
+            <nav onclick="render('ios')" data-menu="ios" id="btn">iOS разработчик</nav>
+            <nav onclick="render('sis')" data-menu="sis" id="btn">Системный аналитик</nav>
+            <nav onclick="render('admin')" data-menu="admin" id="btn">Администратор баз данных</nav>
+            <nav onclick="render('bd')" data-menu="bd" id="btn">Разработчик баз данных</nav>
+        </nav>
+        <div data-menu="ios" id="list" class="container_info-category-detailed">
+            <div class="info-category-detailed">iOS разработчик</div>
             <div class="info-category-detailed">Информация</div>
+            <div class="info-category-detailed">Информация</div>
+            <div class="info-category-detailed">Информация</div>
+            <div class="info-category-detailed">Информация</div>
+        </div>
+        <div data-menu="sis" id="list" class="container_info-category-detailed">
+            <div class="info-category-detailed">Системный аналитик</div>
+            <div class="info-category-detailed">Информация</div>
+            <div class="info-category-detailed">Информация</div>
+            <div class="info-category-detailed">Информация</div>
+            <div class="info-category-detailed">Информация</div>
+        </div>
+        <div data-menu="admin" id="list" class="container_info-category-detailed">
+            <div class="info-category-detailed">Администратор баз данных</div>
+            <div class="info-category-detailed">Информация</div>
+            <div class="info-category-detailed">Информация</div>
+            <div class="info-category-detailed">Информация</div>
+            <div class="info-category-detailed">Информация</div>
+        </div>
+        <div data-menu="bd" id="list" class="container_info-category-detailed">
+            <div class="info-category-detailed">Разработчик баз данных</div>
             <div class="info-category-detailed">Информация</div>
             <div class="info-category-detailed">Информация</div>
             <div class="info-category-detailed">Информация</div>
@@ -71,8 +92,44 @@
     <div class="fotter_promo">
         <img src="{% static 'img/fotter_prom.png' %}" alt="">
     </div>
+
+    <div class="fixed-overlay fixed-overlay__modal" id="modal">
+                <div class="modal">
+                    <div class="modal_container">
+                        <div class="lc-modal__close" aria-label="Закрыть" onclick="switchOpen()"></div>
+                        <h1>Выберите направление</h1>
+                        <div class="cat-modal">
+                            <div class="modal-f">
+                                <span>1.</span>
+                                <div class="text">iOS разработчик ></div>
+                            </div>
+                        </div>
+                        <div class="cat-modal">
+                            <div class="modal-f">
+                                <span>2.</span>
+                                <div class="text">Системный аналитик ></div>
+                            </div>
+                        </div>
+                        <div class="cat-modal">
+                            <div class="modal-f">
+                                <span>3.</span>
+                                <div class="text">Администратор баз данных ></div>
+                            </div>
+                        </div>
+                        <div class="cat-modal">
+                            <div class="modal-f">
+                                <span>4.</span>
+                                <div class="text">Разработчик баз данных ></div>
+                            </div>
+                        </div>
+                        <div class="modal_back"><img src="{% static 'img/modal.webp' %}" alt=""></div>
+                        <div class="modal_after"><img src="{% static 'img/modal_after.webp' %}" alt=""></div>
+                    </div>
+                </div>
+            </div>
 </main>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
-{#<script src="{% static 'js/nav_active.js' %}"></script>#}
+<script src="{% static 'js/nav_active.js' %}"></script>
+<script src="{% static 'js/modal.js' %}"></script>
 </body>
 </html>
