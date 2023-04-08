@@ -13,7 +13,8 @@ COPY /users ./users
 COPY /templates ./templates
 COPY /static ./static
 COPY /chat ./chat
-COPY /db.sqlite3 ./db.sqlite3
+COPY /chat ./chat
+COPY /practicum ./practicum
 RUN pip install --upgrade pip && pip wheel --no-cache-dir --no-deps --wheel-dir /app/wheels -r requirements.txt
 FROM python:3.10-slim-buster
 WORKDIR /app
@@ -27,5 +28,5 @@ COPY --from=builder /app/users ./users
 COPY --from=builder /app/templates ./templates
 COPY --from=builder /app/static ./static
 COPY --from=builder /app/chat ./chat
-COPY --from=builder /app/db.sqlite3 ./db.sqlite3
+COPY --from=builder /app/practicum ./practicum
 RUN pip install --no-cache /wheels/* && python manage.py collectstatic --noinput
