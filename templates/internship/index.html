@@ -47,32 +47,32 @@
             <nav onclick="render('bd')" data-menu="bd" id="btn">Разработчик баз данных</nav>
         </nav>
         <div data-menu="ios" id="list" class="container_info-category-detailed">
-            <div class="info-category-detailed">iOS разработчик</div>
-            <div class="info-category-detailed">Информация</div>
-            <div class="info-category-detailed">Информация</div>
-            <div class="info-category-detailed">Информация</div>
-            <div class="info-category-detailed">Информация</div>
+            <div class="info-category-detailed" onclick="switchFormOpen()">iOS разработчик</div>
+            <div class="info-category-detailed" onclick="switchFormOpen()">Информация</div>
+            <div class="info-category-detailed" onclick="switchFormOpen()">Информация</div>
+            <div class="info-category-detailed" onclick="switchFormOpen()">Информация</div>
+            <div class="info-category-detailed" onclick="switchFormOpen()">Информация</div>
         </div>
         <div data-menu="sis" id="list" class="container_info-category-detailed">
-            <div class="info-category-detailed">Системный аналитик</div>
-            <div class="info-category-detailed">Информация</div>
-            <div class="info-category-detailed">Информация</div>
-            <div class="info-category-detailed">Информация</div>
-            <div class="info-category-detailed">Информация</div>
+            <div class="info-category-detailed" onclick="switchFormOpen()">Системный аналитик</div>
+            <div class="info-category-detailed" onclick="switchFormOpen()">Информация</div>
+            <div class="info-category-detailed" onclick="switchFormOpen()">Информация</div>
+            <div class="info-category-detailed" onclick="switchFormOpen()">Информация</div>
+            <div class="info-category-detailed" onclick="switchFormOpen()">Информация</div>
         </div>
         <div data-menu="admin" id="list" class="container_info-category-detailed">
-            <div class="info-category-detailed">Администратор баз данных</div>
-            <div class="info-category-detailed">Информация</div>
-            <div class="info-category-detailed">Информация</div>
-            <div class="info-category-detailed">Информация</div>
-            <div class="info-category-detailed">Информация</div>
+            <div class="info-category-detailed" onclick="switchFormOpen()">Администратор баз данных</div>
+            <div class="info-category-detailed" onclick="switchFormOpen()">Информация</div>
+            <div class="info-category-detailed" onclick="switchFormOpen()">Информация</div>
+            <div class="info-category-detailed" onclick="switchFormOpen()">Информация</div>
+            <div class="info-category-detailed" onclick="switchFormOpen()">Информация</div>
         </div>
         <div data-menu="bd" id="list" class="container_info-category-detailed">
-            <div class="info-category-detailed">Разработчик баз данных</div>
-            <div class="info-category-detailed">Информация</div>
-            <div class="info-category-detailed">Информация</div>
-            <div class="info-category-detailed">Информация</div>
-            <div class="info-category-detailed">Информация</div>
+            <div class="info-category-detailed" onclick="switchFormOpen()">Разработчик баз данных</div>
+            <div class="info-category-detailed" onclick="switchFormOpen()">Информация</div>
+            <div class="info-category-detailed" onclick="switchFormOpen()">Информация</div>
+            <div class="info-category-detailed" onclick="switchFormOpen()">Информация</div>
+            <div class="info-category-detailed" onclick="switchFormOpen()">Информация</div>
         </div>
         <div class="main_prom">
             <img src="{% static 'img/main_prom.png' %}" alt="">
@@ -94,39 +94,62 @@
     </div>
 
     <div class="fixed-overlay fixed-overlay__modal" id="modal">
-                <div class="modal">
-                    <div class="modal_container">
-                        <div class="lc-modal__close" aria-label="Закрыть" onclick="switchOpen()"></div>
-                        <h1>Выберите направление</h1>
-                        <div class="cat-modal">
-                            <div class="modal-f">
-                                <span>1.</span>
-                                <div class="text">iOS разработчик ></div>
-                            </div>
-                        </div>
-                        <div class="cat-modal">
-                            <div class="modal-f">
-                                <span>2.</span>
-                                <div class="text">Системный аналитик ></div>
-                            </div>
-                        </div>
-                        <div class="cat-modal">
-                            <div class="modal-f">
-                                <span>3.</span>
-                                <div class="text">Администратор баз данных ></div>
-                            </div>
-                        </div>
-                        <div class="cat-modal">
-                            <div class="modal-f">
-                                <span>4.</span>
-                                <div class="text">Разработчик баз данных ></div>
-                            </div>
-                        </div>
-                        <div class="modal_back"><img src="{% static 'img/modal.webp' %}" alt=""></div>
-                        <div class="modal_after"><img src="{% static 'img/modal_after.webp' %}" alt=""></div>
+        <div class="modal">
+            <div class="modal_container">
+                <div class="lc-modal__close" aria-label="Закрыть" onclick="switchOpen()"></div>
+                <h1>Выберите направление</h1>
+                <div class="cat-modal">
+                    <div class="modal-f">
+                        <span>1.</span>
+                        <div onclick="switchFormOpen()" class="text">iOS разработчик ></div>
                     </div>
                 </div>
+                <div class="cat-modal">
+                    <div class="modal-f">
+                        <span>2.</span>
+                        <div onclick="switchFormOpen()" class="text">Системный аналитик ></div>
+                    </div>
+                </div>
+                <div class="cat-modal">
+                    <div class="modal-f">
+                        <span>3.</span>
+                        <div onclick="switchFormOpen()" class="text">Администратор баз данных ></div>
+                    </div>
+                </div>
+                <div class="cat-modal">
+                    <div class="modal-f">
+                        <span>4.</span>
+                        <div onclick="switchFormOpen()" class="text">Разработчик баз данных ></div>
+                    </div>
+                </div>
+                <div class="modal_back"><img src="{% static 'img/modal.webp' %}" alt=""></div>
+                <div class="modal_after"><img src="{% static 'img/modal_after.webp' %}" alt=""></div>
             </div>
+        </div>
+    </div>
+    <div class="fixed-overlay fixed-overlay__form" id="form_modal">
+        <div class="forms">
+            <div class="form_container">
+                <div class="lc-form__close" aria-label="Закрыть" onclick="switchFormOpen()"></div>
+                <h1 class="text_form">Стажировка 2023: разработка бэкенда</h1>
+                <form action="">
+                    <div class="input">
+                        <label id="fio">Фамилия</label>
+                        <input form="fio"/>
+                    </div>
+                    <div class="input">
+                        <label id="name">Имя</label>
+                        <input form="fio"/>
+                    </div>
+                    <div class="input">
+                        <label id="textarea">textarea</label>
+                        <textarea name="textarea"></textarea>
+                    </div>
+                    <button type="submit">Отправить</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </main>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
 <script src="{% static 'js/nav_active.js' %}"></script>

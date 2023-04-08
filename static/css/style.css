@@ -166,6 +166,7 @@ header {
     color: var(--white);
     font-size: 34px;
     margin: 0 auto;
+    cursor: pointer;
 }
 
 .container_info-category-detailed {
@@ -337,4 +338,131 @@ header {
     position: relative;
     bottom: 1845px;
     right: 171px;
+}
+
+
+.fixed-overlay__form {
+    text-align: center;
+    white-space: nowrap;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.fixed-overlay__form::after {
+    display: inline-block;
+    vertical-align: middle;
+    width: 0;
+    height: 100%;
+    content: '';
+}
+
+.forms {
+    margin-top: 100px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.lc-form__close {
+    position: relative;
+    z-index: 2;
+    top: 0;
+    right: 0;
+    height: 32px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    background-color: transparent;
+}
+
+.lc-form__close:before {
+    right: 9px;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.lc-form__close:after, .lc-form__close:before {
+    position: absolute;
+    top: 9px;
+    width: 42px;
+    height: 42px;
+    content: "";
+    border-top: 1px solid #c4c4c4;
+}
+
+.lc-form__close:after {
+    right: -20px;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+.form_container {
+    width: 700px;
+    height: 60vh;
+    text-align: left;
+    white-space: normal;
+    background-color: #fff;
+    padding: 70px;
+    color: var(--white);
+}
+
+.form_container .text_form {
+    width: 600px;
+    margin: 0 auto;
+    position: relative;
+    border: 0 solid transparent;
+    top: -38px;
+    color: black;
+}
+
+.text_form h1 {
+    text-align: center;
+    font-size: 45px;
+}
+
+form {
+    display: flex;
+    margin: 0 auto;
+    align-items: center;
+    flex-direction: column;
+    color: black;
+
+}
+
+.input label {
+    display: flex;
+    width: 300px;
+    height: 23px;
+    margin: 5px 0 0 0;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.input input {
+    display: flex;
+    width: 300px;
+    height: 23px;
+    margin: 5px 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.input textarea {
+    max-width: 308px;
+    max-height: 200px;
+    min-width: 308px;
+    min-height: 100px;
+    display: flex;
+    width: 300px;
+    height: 23px;
+    margin: 5px 0;
+    justify-content: center;
+    align-items: center;
+}
+
+form button {
+    margin-top: 15px;
 }
