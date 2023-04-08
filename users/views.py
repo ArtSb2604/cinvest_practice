@@ -2,15 +2,23 @@ from django.http import HttpResponse
 from django.shortcuts import redirect
 from django.views import generic
 from django.views.generic import DetailView
+from rest_framework import generics
 
 from users.forms import UserInfo
 from users.models import User
+from users.serilazer import UserSerializer
 
 
 class UserAdminListView(generic.ListView):
     model = User
     context_object_name = 'users'
     template_name = 'users/admin-user.html'
+
+
+class UserAPIList(generics.ListCreateAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
 
 def user_update_status(request):
     if request.method == 'GET':
@@ -26,6 +34,7 @@ def user_update_status(request):
 
     else:
         return HttpResponse("Request method is not a GET")
+
 
 def user_delete(request):
     if request.method == 'GET':
@@ -49,9 +58,19 @@ class UserDetail(DetailView):
     def post(self, request, *args, **kwargs):
         form = request.POST
         print(form)
-        User.objects.filter(pk=form['user_pk']).update(last_name=form['last_name'], first_name=form['first_name'], mail=form['mail'], email=form['mail'],
-                                                       patronymic=form['patronymic'], birthdate=form['birthdate'], city=form['city'], number_phone=form['number_phone'], social_contact=form['social_contact'],
-                                                       course=form['course'], university=form['university'], department=form['department'], specialization=form['specialization'], year_graduation=form['year_graduation'],
-                                                       average_score=form['average_score'], educational_interests=form['educational_interests'], what_tasks=form['what_tasks'], achievements=form['achievements'],
-                                                       work_experience=form['work_experience'], find_out=form['find_out'], interested_internship=form['interested_internship'])
+        User.objects.filter(pk=form['user_pk']).update(last_name=form['last_name'], first_name=form['first_name'],
+                                                       mail=form['mail'], email=form['mail'],
+                                                       patronymic=form['patronymic'], birthdate=form['birthdate'],
+                                                       city=form['city'], number_phone=form['number_phone'],
+                                                       social_contact=form['social_contact'],
+                                                       course=form['course'], university=form['university'],
+                                                       department=form['department'],
+                                                       specialization=form['specialization'],
+                                                       year_graduation=form['year_graduation'],
+                                                       average_score=form['average_score'],
+                                                       educational_interests=form['educational_interests'],
+                                                       what_tasks=form['what_tasks'], achievements=form['achievements'],
+                                                       work_experience=form['work_experience'],
+                                                       find_out=form['find_out'],
+                                                       interested_internship=form['interested_internship'])
         return redirect('all_users')

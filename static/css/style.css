@@ -346,11 +346,11 @@ header {
     white-space: nowrap;
     background-color: rgba(0, 0, 0, 0.9);
     display: none;
-    position: fixed;
-    top: 0;
+    position: absolute;
+    top: -100px;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 2810px;
 }
 
 .fixed-overlay__form::after {
@@ -401,7 +401,7 @@ header {
 
 .form_container {
     width: 700px;
-    height: 60vh;
+    height: 100%;
     text-align: left;
     white-space: normal;
     background-color: #fff;
@@ -435,7 +435,7 @@ form {
 .input label {
     display: flex;
     width: 300px;
-    height: 23px;
+    height: 100%;
     margin: 5px 0 0 0;
     justify-content: flex-start;
     align-items: center;
@@ -444,7 +444,7 @@ form {
 .input input {
     display: flex;
     width: 300px;
-    height: 23px;
+    height: 24px;
     margin: 5px 0;
     justify-content: center;
     align-items: center;
@@ -465,4 +465,21 @@ form {
 
 form button {
     margin-top: 15px;
+}
+
+.btn {
+    background: var(--text);
+    width: 20%;
+    height: 36px;
+    padding: 10px 22px;
+    font-weight: bold;
+    border-width: 2px;
+    text-transform: uppercase;
+    color: var(--white-btn);
+    text-align: center;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    border-radius: 5px;
+    border-color: var(--text);
 }
