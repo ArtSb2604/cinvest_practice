@@ -1,0 +1,206 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Панель Модератора</title>
+    <link rel="stylesheet" href="{% static 'css/user_ind.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="section-admin">
+        <div class="block-left-admin">
+            <div class="p-2 menu-left-admin-active">
+                <div class="menu-left-2">
+                    <div class="menu-left-3">
+                        <a href="admin-user.html" class="text-decoration-none text-admin-menu-active">Пользователи</a>
+                    </div>
+                </div>
+            </div>
+            <div class="p-2 menu-left-admin">
+                <div class="menu-left-2">
+                    <div class="menu-left-3">
+                        <a href="admin-call-back.html" class="text-decoration-none text-admin-menu">Обратный звонок</a>
+                    </div>
+                </div>
+            </div>
+            <div class="p-2 menu-left-admin">
+                <div class="menu-left-2">
+                    <div class="menu-left-3">
+                        <a href="admin-add-objects.html" class="text-decoration-none text-admin-menu">Добавить объект</a>
+                    </div>
+                </div>
+            </div>
+            <div class="p-2 menu-left-admin">
+                <div class="menu-left-2">
+                    <div class="menu-left-3">
+                        <a href="admin-favourites.html" class="text-decoration-none text-admin-menu">Избранное</a>
+                    </div>
+                </div>
+            </div>
+            <div class="p-2 menu-left-admin">
+                <div class="menu-left-2">
+                    <div class="menu-left-3">
+                        <a href="#" class="text-decoration-none text-admin-menu">Мои объекты</a>
+                    </div>
+                </div>
+            </div>
+            <div class="p-2 menu-left-admin" style="height: 80px !important;">
+                <div class="menu-left-2" style="height: 80px !important;">
+                    <div class="menu-left-3" style="height: 80px !important;">
+                        <a href="#" class="text-decoration-none text-admin-menu" style="height: 48px !important;">Напоминания об объектах</a>
+                    </div>
+                </div>
+            </div>
+            <div class="p-2 menu-left-admin">
+                <div class="menu-left-2">
+                    <div class="menu-left-3">
+                        <a href="#" class="text-decoration-none text-admin-menu">Настройки</a>
+                    </div>
+                </div>
+            </div>
+            <div class="p-2 menu-left-admin">
+                <div class="menu-left-2">
+                    <div class="menu-left-3">
+                        <a href="#" class="text-decoration-none text-admin-menu">Клиенты</a>
+                    </div>
+                </div>
+            </div>
+            <div class="p-2 menu-left-admin" style="height: 80px !important;">
+                <div class="menu-left-2" style="height: 80px !important;">
+                    <div class="menu-left-3" style="height: 80px !important;">
+                        <a href="#" class="text-decoration-none text-admin-menu" style="height: 48px !important;">Напоминания по клиентам</a>
+                    </div>
+                </div>
+            </div>
+            <div class="p-2 menu-left-admin">
+                <div class="menu-left-2">
+                    <div class="menu-left-3">
+                        <a href="#" class="text-decoration-none text-admin-menu">Добавление клиента</a>
+                    </div>
+                </div>
+            </div>
+            <div class="p-2 menu-left-admin">
+                <div class="menu-left-2">
+                    <div class="menu-left-3">
+                        <a href="#" class="text-decoration-none text-admin-menu">Архив клиентов</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <form method="post" class="block-right-admin">
+        {% csrf_token %}
+            <div class="block_right">
+                <div class="main_block">
+                    <input type="text" name="user_pk" placeholder="" value="{{ user.pk }}" style="display: none">
+                    <div class="p-2 user-agent-block-13">
+                        <p class="user-agent-block-13-text">Фамилия:</p>
+                        <input type="text" class="user-input-last_name user-input" name="last_name" placeholder="" value="{{ user.last_name }}">
+                    </div>
+                    <div class="p-2 user-agent-block-13">
+                        <p class="user-agent-block-13-text">Имя:</p>
+                        <input type="text" class="user-input-first_name user-input" name="first_name" placeholder="" value="{{ user.first_name }}">
+                    </div>
+                    <div class="p-2 user-agent-block-13">
+                        <p class="user-agent-block-13-text">Отчество:</p>
+                        <input type="text" class="user-input-patronymic user-input" name="patronymic" placeholder="" value="{{ user.patronymic }}">
+                    </div>
+                    <div class="p-2 user-agent-block-13">
+                        <p class="user-agent-block-13-text">Дата рождения:</p>
+                        <input type="date" class="user-input-birthdate user-input" name="birthdate" placeholder="" value="{{ user.birthdate|date:"Y-m-d" }}">
+                    </div>
+                    <div class="p-2 user-agent-block-13">
+                        <p class="user-agent-block-13-text">Город:</p>
+                        <input type="text" class="user-input-city user-input" name="city" placeholder="" value="{{ user.city }}">
+                    </div>
+                    <div class="p-2 user-agent-block-13">
+                        <p class="user-agent-block-13-text">Номер телефона:</p>
+                        <input type="text" class="user-input-number_phone user-input" name="number_phone" placeholder="" value="{{ user.number_phone }}">
+                    </div>
+                    <div class="p-2 user-agent-block-13">
+                        <p class="user-agent-block-13-text">Почта:</p>
+                        <input type="text" class="user-input-mail user-input" name="mail" placeholder="" value="{{ user.mail }}">
+                    </div>
+                </div>
+
+                <div class="info_block">
+                    <div class="p-2 user-agent-block-13">
+                        <p class="user-agent-block-13-text">Контакт для оперативной связи (Телеграм, VK или что-то ещё):</p>
+                        <input type="text" class="user-input-social_contact user-input" name="social_contact" placeholder="" value="{{ user.social_contact }}">
+                    </div>
+                    <div class="p-2 user-agent-block-13">
+                        <p class="user-agent-block-13-text">Укажите вашу ступень обучения:</p>
+                        <input type="text" class="user-input-course user-input" name="course" placeholder="" value="{{ user.course }}">
+                    </div>
+                    <div class="p-2 user-agent-block-13">
+                        <p class="user-agent-block-13-text">Расскажите, какого университета:</p>
+                        <input type="text" class="user-input-university user-input" name="university" placeholder="" value="{{ user.university }}">
+                    </div>
+                    <div class="p-2 user-agent-block-13">
+                        <p class="user-agent-block-13-text">Кафедра:</p>
+                        <input type="text" class="user-input-department user-input" name="department" placeholder="" value="{{ user.department }}">
+                    </div>
+                    <div class="p-2 user-agent-block-13">
+                        <p class="user-agent-block-13-text">Специальность:</p>
+                        <input type="text" class="user-input-specialization user-input" name="specialization" placeholder="" value="{{ user.specialization }}">
+                    </div>
+                    <div class="p-2 user-agent-block-13">
+                        <p class="user-agent-block-13-text">Укажите год окончания:</p>
+                        <input type="text" class="user-input-year_graduation user-input" name="year_graduation" placeholder="" value="{{ user.year_graduation }}">
+                    </div>
+                    <div class="p-2 user-agent-block-13">
+                        <p class="user-agent-block-13-text">Укажите ваш средний балл в вузе:</p>
+                        <input type="text" class="user-input-average_score user-input" name="average_score" placeholder="" value="{{ user.average_score }}">
+                    </div>
+                    <div class="p-2 user-agent-block-13">
+                        <p class="user-agent-block-13-text">Расскажите о своих учебных интересах:</p>
+                        <input type="text" class="user-input-educational_interests user-input" name="educational_interests" placeholder="" value="{{ user.educational_interests }}">
+                    </div>
+                    <div class="p-2 user-agent-block-13">
+                        <p class="user-agent-block-13-text">Опишите, какими задачами вам было бы интересно заниматься во время стажировки:</p>
+                        <input type="text" class="user-input-what_tasks user-input" name="what_tasks" placeholder="" value="{{ user.what_tasks }}">
+                    </div>
+                    <div class="p-2 user-agent-block-13">
+                        <p class="user-agent-block-13-text">Расскажите о своих достижениях:</p>
+                        <input type="text" class="user-input-achievements user-input" name="achievements" placeholder="" value="{{ user.achievements }}">
+                    </div>
+                    <div class="p-2 user-agent-block-13">
+                        <p class="user-agent-block-13-text">Если у вас есть опыт работы/стажировки, расскажите об этом подробнее:</p>
+                        <input type="text" class="user-input-work_experience user-input" name="work_experience" placeholder="" value="{{ user.work_experience }}">
+                    </div>
+                    <div class="p-2 user-agent-block-13">
+                        <p class="user-agent-block-13-text">Откуда вы узнали о стажировках в Банке Центр-Инвест:</p>
+                        <input type="text" class="user-input-find_out user-input" name="find_out" placeholder="" value="{{ user.find_out }}">
+                    </div>
+                    <div class="p-2 user-agent-block-13">
+                        <p class="user-agent-block-13-text">Почему вас заинтересовала стажировка в Банке Центр-Инвест, и чего вы от неё ждёте:</p>
+                        <input type="text" class="user-input-interested_internship user-input" name="interested_internship" placeholder="" value="{{ user.interested_internship }}">
+                    </div>
+                </div>
+
+            </div>
+            <div class="button_menu">
+                    <div class="status" id="status{{ i.pk }}">
+                        {% if i.Activity == True %}
+                            <button type="button" class="btn btn-dark button-admin-1" id="user_status{{ i.pk }}" onclick="status_user({{ i.pk }});"  data-userid="{{ i.pk }}" data-status="0">Заблокировать</button>
+                        {% else %}
+                            <button type="button" class="btn btn-dark button-admin-4" id="user_status{{ i.pk }}" onclick="status_user({{ i.pk }});"  data-userid="{{ i.pk }}" data-status="1">Активировать</button>
+                        {% endif %}
+                    </div>
+                    <button type="submit" class="btn btn-dark button-admin-save">
+                        Сохранить
+                    </button>
+                </div>
+        </form>
+    </div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script>
+
+</script>
+</html>
+
+
