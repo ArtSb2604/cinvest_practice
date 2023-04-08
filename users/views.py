@@ -1,9 +1,9 @@
+from django.core.mail import EmailMessage
 from django.http import HttpResponse
 from django.shortcuts import redirect
 from django.views import generic
 from django.views.generic import DetailView
 from rest_framework import generics
-from rest_framework.authentication import SessionAuthentication, BasicAuthentication
 
 from users.forms import UserInfo
 from users.models import User
@@ -16,15 +16,9 @@ class UserAdminListView(generic.ListView):
     template_name = 'users/admin-user.html'
 
 
-class CsrfExemptSessionAuthentication(SessionAuthentication):
-    def enforce_csrf(self, request):
-        return
-
-
 class UserAPIList(generics.ListCreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    authentication_classes = (CsrfExemptSessionAuthentication, BasicAuthentication)
 
 
 def user_update_status(request):
@@ -81,3 +75,9 @@ class UserDetail(DetailView):
                                                        find_out=form['find_out'],
                                                        interested_internship=form['interested_internship'])
         return redirect('all_users')
+
+
+class ApplicationsAdminListView(generic.ListView):
+    model = User
+    context_object_name = 'users'
+    template_name = 'users/admin-applications.html'

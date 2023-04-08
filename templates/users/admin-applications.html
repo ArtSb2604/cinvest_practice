@@ -13,17 +13,17 @@
 <body>
     <div class="section-admin">
         <div class="block-left-admin">
-            <div class="p-2 menu-left-admin-active">
-                <div class="menu-left-2">
-                    <div class="menu-left-3">
-                        <a href="{% url 'all_users' %}" class="text-decoration-none text-admin-menu-active">Пользователи</a>
-                    </div>
-                </div>
-            </div>
             <div class="p-2 menu-left-admin">
                 <div class="menu-left-2">
                     <div class="menu-left-3">
-                        <a href="{% url 'all_applications' %}" class="text-decoration-none text-admin-menu">Заявки</a>
+                        <a href="{% url 'all_users' %}" class="text-decoration-none text-admin-menu">Пользователи</a>
+                    </div>
+                </div>
+            </div>
+            <div class="p-2 menu-left-admin-active">
+                <div class="menu-left-2">
+                    <div class="menu-left-3">
+                        <a href="{% url 'all_applications' %}" class="text-decoration-none text-admin-menu-active">Заявки</a>
                     </div>
                 </div>
             </div>
@@ -43,7 +43,7 @@
                     </div>
                     <hr class="hr-uder-2">
                     {% for i in users %}
-                        {% if i.Activity == True %}
+                        {% if i.Activity == False %}
                         <div id="user-{{ i.pk }}">
                         <div class="d-flex admin-users-block-2">
                         <div class="d-flex p-2 flex-fill align-items-start user-admin-block">
@@ -103,7 +103,7 @@ async function status_user(id) {
     $.ajax(
     {
         type:"GET",
-        url: "user_update_status",
+        url: "/moderator/users/user_update_status",
         cache: false,
         async: true,
         data:{
@@ -127,7 +127,7 @@ function delete_user(num) {
     $.ajax(
     {
         type:"GET",
-        url: "delete_user",
+        url: "/moderator/users/delete_user",
         data:{
                  user_id: catid
         },

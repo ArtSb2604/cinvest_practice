@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Стажировка в Банк Центр-инвест</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link data-n-head="ssr" rel="icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}">
+    <link data-n-head="ssr" rel="icon" type="image/x-icon" href="{% static 'img//favicon.ico' %}">
 </head>
 <body>
 <header>
@@ -132,172 +132,97 @@
             <div class="form_container">
                 <div class="lc-form__close" aria-label="Закрыть" onclick="switchFormOpen()"></div>
                 <h1 class="text_form">Стажировка 2023</h1>
-                <form id="forms">
-                    <div class="input">
-                        <label>Имя пользователя:</label>
-                        <label>
-                            <input required name="username"/>
-                        </label>
-                    </div>
+                <form action="">
                     <div class="input">
                         <label>Фамилия:</label>
-                        <label>
-                            <input required name="first_name"/>
-                        </label>
+                        <input required/>
                     </div>
                     <div class="input">
                         <label>Имя:</label>
-                        <label>
-                            <input required name="last_name"/>
-                        </label>
+                        <input required/>
                     </div>
                     <div class="input">
                         <label>Отчество:</label>
-                        <label>
-                            <input required name="patronymic"/>
-                        </label>
+                        <input required/>
                     </div>
                     <div class="input">
                         <label>Дата рождения:</label>
-                        <label>
-                            <input required type="date" class="user-input-birthdate user-input" name="birthdate">
-                        </label>
+                        <input type="date" class="user-input-birthdate user-input" name="birthdate">
                     </div>
                     <div class="input">
                         <label>Город:</label>
-                        <label>
-                            <input required name="city"/>
-                        </label>
+                        <input required/>
                     </div>
                     <div class="input">
                         <label>Номер телефона:</label>
-                        <label>
-                            <input required name="number_phone"/>
-                        </label>
+                        <input required/>
                     </div>
                     <div class="input">
                         <label>Почта:</label>
-                        <label>
-                            <input type="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-                                   name="email"/>
-                        </label>
+                        <input required/>
                     </div>
                     <div class="input">
                         <label>Контакт для оперативной связи:</label>
-                        <label>
-                            <input name="social_contact" required/>
-                        </label>
+                        <input required/>
                     </div>
                     <div class="input">
                         <label>Укажите вашу ступень обучения:</label>
-                        <label>
-                            <textarea name="course" required></textarea>
-                        </label>
-                    </div>
-                    <div class="input">
-                        <label>Расскажите, какого университета:</label>
-                        <label>
-                            <textarea name="university" required></textarea>
-                        </label>
+                        <textarea></textarea>
                     </div>
                     <div class="input">
                         <label>Кафедра:</label>
-                        <label>
-                            <input name="department" required/>
-                        </label>
+                        <input required/>
                     </div>
                     <div class="input">
                         <label>Специальность:</label>
-                        <label>
-                            <input name="specialization" required/>
-                        </label>
+                        <input required/>
                     </div>
                     <div class="input">
                         <label>Укажите год окончания:</label>
-                        <label>
-                            <input name="year_graduation" required/>
-                        </label>
+                        <input required/>
                     </div>
                     <div class="input">
                         <label>Укажите ваш средний балл в вузе:</label>
-                        <label>
-                            <input name="average_score" required/>
-                        </label>
+                        <input required/>
                     </div>
                     <div class="input">
                         <label>Расскажите о своих учебных интересах:</label>
-                        <label>
-                            <input name="educational_interests" required/>
-                        </label>
+                        <input required/>
                     </div>
+
                     <div class="input">
                         <label>Опишите, какими задачами вам было бы интересно заниматься во время стажировки:</label>
-                        <label>
-                            <textarea name="what_tasks" required></textarea>
-                        </label>
+                        <textarea></textarea>
                     </div>
+
                     <div class="input">
                         <label>Расскажите о своих достижениях:</label>
-                        <label>
-                            <textarea name="achievements" required></textarea>
-                        </label>
+                        <textarea></textarea>
                     </div>
+
                     <div class="input">
                         <label>Если у вас есть опыт работы/стажировки, расскажите об этом подробнее:</label>
-                        <label>
-                            <textarea name="work_experience" required></textarea>
-                        </label>
+                        <textarea></textarea>
                     </div>
+
                     <div class="input">
                         <label>Откуда вы узнали о стажировках в Банке Центр-Инвест:</label>
-                        <label>
-                            <textarea name="find_out" required></textarea>
-                        </label>
+                        <textarea></textarea>
                     </div>
+
                     <div class="input">
                         <label>Почему вас заинтересовала стажировка в Банке Центр-Инвест, и чего вы от неё
                             ждёте:</label>
-                        <textarea name="interested_internship" required></textarea>
+                        <textarea></textarea>
                     </div>
-                    <button class="btn" type="submit" id="submit-btn">Отправить</button>
+                    <button class="btn" type="submit">Отправить</button>
                 </form>
             </div>
         </div>
     </div>
 </main>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
 <script src="{% static 'js/nav_active.js' %}"></script>
 <script src="{% static 'js/modal.js' %}"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.1/axios.min.js"></script>
-<script>
-
-    const forms = document.getElementById('forms');
-    const submitBtn = forms.querySelector('#submit-btn')
-
-
-    const getFormValue = async event => {
-        event.preventDefault();
-
-        submitBtn.disabled = true
-
-        const data = [...event.target].map(({name, value}) => [name, value]).reduce((data, input, currentIndex) => {
-            if (currentIndex === 1) return {[data[0]]: data[1], [input[0]]: input[1]}
-            return {...data, [input[0]]: input[1]}
-        })
-
-
-        await axios.post('/api/v1/users/create/', data).catch(err => {
-            submitBtn.disabled = false
-            console.log('Я *******, потому что ', err)
-        })
-
-        submitBtn.disabled = false
-
-
-        switchFormOpen()
-    }
-
-    forms.addEventListener('submit', getFormValue);
-
-</script>
 </body>
 </html>

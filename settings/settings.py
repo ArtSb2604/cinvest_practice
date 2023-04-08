@@ -5,7 +5,7 @@ from pathlib import Path
 load_dotenv()
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = os.getenv('SECRET_KEY')
+SECRET_KEY = 'django-insecure-t6#d1jdd(zq^b(4m7c66c+x&3vnuief82t9h7_%c8haia)b)$$'
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
@@ -18,9 +18,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'django_summernote',
     'internship',
     'users',
-    'chat'
+    'chat',
+    'practicum'
 ]
 
 MIDDLEWARE = [
@@ -112,12 +114,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'users.User'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-
-EMAIL_HOST = os.getenv("EMAIL_HOST")
-EMAIL_PORT = os.getenv("EMAIL_PORT")
-EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
-EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
-EMAIL_USE_TLS = False
-EMAIL_USE_SSL = True
-DEFAULT_FROM_EMAIL = os.getenv("EMAIL_HOST_USER")
-SERVER_EMAIL = os.getenv("EMAIL_HOST_USER")
+EMAIL_HOST='connect.smtp.bz'
+EMAIL_PORT=465
+EMAIL_HOST_USER='info@kulpinov.site'
+EMAIL_HOST_PASSWORD='9j0drwBK9wGW'
+DEFAULT_FROM_EMAIL='info@kulpinov.site'

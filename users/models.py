@@ -11,6 +11,7 @@ class User(AbstractUser):
     birthdate = models.DateField(verbose_name='Дата рождения', max_length=100, blank=True, null=True)
     city = models.CharField(verbose_name='Город', max_length=100)
     number_phone = models.CharField(verbose_name='Телефон', max_length=100)
+    mail = models.CharField(verbose_name='Электронная почта', max_length=100)
     social_contact = models.CharField(verbose_name='Контакт для оперативной связи (Телеграм, VK или что-то ещё)',
                                       max_length=100)
     course = models.CharField(verbose_name='Укажите вашу ступень обучения', max_length=100)
@@ -29,6 +30,7 @@ class User(AbstractUser):
     interested_internship = models.CharField(
         verbose_name='Почему вас заинтересовала стажировка в Банке Центр-Инвест, и чего вы от неё ждёте?',
         max_length=100)
+    resume = models.FileField(verbose_name='Добавьте резюме', blank=True, null=True)
 
     def __str__(self):
         return f"{self.last_name} {self.first_name} {self.patronymic}"

@@ -428,7 +428,7 @@ form {
 
 .input label {
     display: flex;
-    max-width: 315px;
+    width: 300px;
     height: 100%;
     margin: 5px 0 0 0;
     justify-content: flex-start;
@@ -476,8 +476,4 @@ form button {
     outline: none;
     border-radius: 5px;
     border-color: var(--text);
-}
-
-.btn:disabled {
-    opacity: .6;
 }
