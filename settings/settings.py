@@ -37,15 +37,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CORS_ALLOWED_ORIGINS = [
-    'http://127.0.0.1:7776',
-    'https://centrinvest.kulpinov.site'
-]
 
-CSRF_TRUSTED_ORIGINS = [
-    'http://127.0.0.1:7776',
-    'https://centrinvest.kulpinov.site'
-]
 
 ROOT_URLCONF = 'settings.urls'
 
@@ -67,23 +59,23 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'settings.wsgi.application'
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.getenv('POSTGRES_DB'),
-        'USER': os.getenv("POSTGRES_USER"),
-        'PASSWORD': os.getenv("POSTGRES_PASSWORD"),
-        'HOST': os.getenv("POSTGRES_HOST"),
-        'PORT': os.getenv("POSTGRES_PORT")
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': os.getenv('POSTGRES_DB'),
+#         'USER': os.getenv("POSTGRES_USER"),
+#         'PASSWORD': os.getenv("POSTGRES_PASSWORD"),
+#         'HOST': os.getenv("POSTGRES_HOST"),
+#         'PORT': os.getenv("POSTGRES_PORT")
+#     }
+# }
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -119,12 +111,15 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'users.User'
 
+
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = os.getenv("EMAIL_HOST")
-EMAIL_PORT = os.getenv("EMAIL_PORT")
-EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
-EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
-EMAIL_USE_TLS = False
-EMAIL_USE_SSL = True
-DEFAULT_FROM_EMAIL = os.getenv("EMAIL_HOST_USER")
-SERVER_EMAIL = os.getenv("EMAIL_HOST_USER")
+EMAIL_HOST = 'smtp.mail.ru'
+EMAIL_PORT = 2525
+EMAIL_HOST_USER = "centr_inv.practicum@mail.ru"
+EMAIL_HOST_PASSWORD = "tPEJQiYwndx04dg8iiJi"
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+
+LOGIN_URL='login'
+LOGIN_REDIRECT_URL='/practicum/article'
+

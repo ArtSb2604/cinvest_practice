@@ -1,0 +1,173 @@
+* {
+    transition: 0.3s;
+}
+
+:root {
+    --base: #080717;
+    --text: #50b848;
+    --white: #fff;
+    --white-btn: #fff;
+}
+
+body {
+    margin: 0;
+    background: var(--base);
+    font-family: YS Text, Helvetica, Arial, sans-serif;;
+}
+
+a, u {
+    text-decoration: none;
+}
+
+p {
+    margin: 0;
+}
+
+a {
+    color: var(--text);
+}
+
+p {
+    color: var(--text);
+}
+
+.container {
+    max-width: 1920px;
+    width: 70%;
+    display: flex;
+    margin: 20px auto;
+    justify-content: center;
+    background-color: var(--white);
+    border-radius: 10px;
+    flex-direction: column;
+}
+
+h1 {
+    margin: 0;
+}
+
+h3 {
+    margin: 0;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    padding: 20px;
+    box-shadow: inset 0 -1px 0 rgb(228 228 227 / 10%);
+    background-color: rgba(07, 07, 23, 0.9);
+}
+
+.catalog {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.catalog nav {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text);
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.logo {
+    cursor: pointer;
+}
+
+.statement button {
+    padding: 10px 22px;
+    font-weight: bold;
+    border-width: 2px;
+    text-transform: uppercase;
+    color: var(--white-btn);
+    text-align: center;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    border-color: var(--white-btn);
+    border-radius: 5px;
+}
+
+.info {
+    height: 600px;
+}
+
+.header-promo img {
+    position: absolute;
+    top: -130px;
+    left: -60px;
+    z-index: -1;
+}
+
+.info-statement {
+    position: absolute;
+    font-size: 105px;
+    color: var(--white);
+    max-width: 1000px;
+    right: 0;
+    margin: 100px;
+    font-weight: bold;
+}
+
+.username {
+    color: var(--white);
+    font-size: 20px;
+}
+
+.fl_name {
+    color: var(--white);
+    font-size: 14px;
+}
+
+.statement {
+    display: flex;
+}
+
+.user_info {
+    margin-right: 20px;
+    text-align: right;
+}
+
+.button_article {
+    padding: 15px;
+    border: 1px solid #000;
+    border-radius: 10px;
+    background-color: var(--text);
+    color: var(--white);
+    font-weight: 600;
+}
+
+.title {
+    text-align: center;
+    margin-top: 30px;
+    color: var(--white);
+}
+
+.text {
+    padding: 10px 125px;
+}
+
+.paginator {
+    max-width: 1920px;
+    width: 70%;
+    display: flex;
+    margin: 20px auto;
+    justify-content: end;
+}
+
+.button_pag {
+    padding: 10px;
+    color: var(--white);
+    background-color: var(--text);
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    margin-left: 10px;
+}

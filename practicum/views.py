@@ -14,3 +14,4 @@ class ArticleDetail(DetailView):
     model = Article
     template_name = "article/detail.html"
     context_object_name = 'article'
+

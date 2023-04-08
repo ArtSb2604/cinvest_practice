@@ -1,4 +1,5 @@
 from django import forms
+from django.contrib.auth.forms import AuthenticationForm
 
 
 class UserInfo(forms.Form):
@@ -29,3 +30,7 @@ class UserInfo(forms.Form):
         for visible in self.visible_fields():
             visible.field.widget.attrs['class'] = 'user-input'
 
+
+class LoginUserForm(AuthenticationForm):
+    username = forms.CharField(label='Логин', widget=forms.TextInput(attrs={'class': 'form-input'}))
+    password = forms.CharField(label='Пароль', widget=forms.PasswordInput(attrs={'class': 'form-input'}))

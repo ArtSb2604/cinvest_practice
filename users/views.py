@@ -1,3 +1,7 @@
+import secrets
+
+from django.contrib.auth import logout
+from django.contrib.auth.views import LoginView
 from django.core.mail import EmailMessage
 from django.http import HttpResponse
 from django.shortcuts import redirect
@@ -6,6 +10,7 @@ from django.views.generic import DetailView
 from rest_framework import generics
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication
 
+from settings import settings
 from users.forms import UserInfo
 from users.models import User
 from users.serilazer import UserSerializer
@@ -32,7 +37,15 @@ def user_update_status(request):
     if request.method == 'GET':
         user = User.objects.get(pk=request.GET['user_id'])
         user.Activity = bool(int(request.GET['status']))
+        password = secrets.token_urlsafe(15)
+        user.set_password(password)
         user.save()
+        if bool(int(request.GET['status'])):
+            email = EmailMessage('Пароль от практикума', f'Пароль: {password}', settings.EMAIL_HOST_USER,
+                                 to=[user.email])
+            email.send()
+        else:
+            pass
         if bool(int(request.GET['status'])):
             return HttpResponse(
                 f'<button type="button" class="btn btn-dark button-admin-1" id="user_status{request.GET["user_id"]}" onclick="status_user({request.GET["user_id"]});" href="#" data-userid="{request.GET["user_id"]}" data-status="0">Заблокировать</button>')
@@ -88,3 +101,11 @@ class ApplicationsAdminListView(generic.ListView):
     model = User
     context_object_name = 'users'
     template_name = 'users/admin-applications.html'
+
+
+class LoginView(LoginView):
+    template_name = 'users/login.html'
+def logout_view(request):
+    logout(request)
+    return redirect('login')
+

@@ -1,12 +1,42 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/articles.css' %}">
+    <link data-n-head="ssr" rel="icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}">
 </head>
 <body>
-{% for i in articles %}
-    <a href="{% url 'ArticleDetail' i.pk %}">{{ i.title }}</a>
-{% endfor %}
+<header>
+    <div class="logo">
+        <img src="{% static 'img/logo.svg' %}" alt="Банк Центр-инвест">
+    </div>
+    <div class="catalog">
+        <nav>Направления</nav>
+        <nav>Условия</nav>
+        <nav>Отбор</nav>
+    </div>
+    {% if request.user.is_authenticated %}
+        <div class="statement">
+            <div class="user_info">
+                <p class="username">{{ user.username }}</p>
+                <p class="fl_name">{{ user.last_name }} {{ user.first_name.0 }}. {{ user.patronymic.0 }}.</p>
+            </div>
+            <button onclick="window.location.href='/logout';">Выйти</button>
+        </div>
+    {% else %}
+        <div class="statement">
+            <button>Войти</button>
+        </div>
+    {% endif %}
+</header>
+<div class="container">
+    <div class="list_articles">
+        {% for i in articles %}
+            <a class="button_article" href="{% url 'ArticleDetail' i.pk %}">{{ i.title }}</a>
+        {% endfor %}
+    </div>
+</div>
 </body>
 </html>

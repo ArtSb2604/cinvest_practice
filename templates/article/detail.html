@@ -1,11 +1,55 @@
+{% load poll_extras %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/detail.css' %}">
+    <link data-n-head="ssr" rel="icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}">
 </head>
 <body>
-{{ article.title | safe }}
-{{ article.text | safe }}
+<header>
+    <div class="logo">
+        <img src="{% static 'img/logo.svg' %}" alt="Банк Центр-инвест">
+    </div>
+    <div class="catalog">
+        <nav><a>Направления</a></nav>
+        <nav><a href="/practicum/article">Уроки</a></nav>
+        <nav><a>Отбор</a></nav>
+    </div>
+    {% if request.user.is_authenticated %}
+        <div class="statement">
+            <div class="user_info">
+                <p class="username">{{ user.username }}</p>
+                <p class="fl_name">{{ user.last_name }} {{ user.first_name.0 }}. {{ user.patronymic.0 }}.</p>
+            </div>
+            <button onclick="window.location.href='/logout';">Выйти</button>
+        </div>
+    {% else %}
+        <div class="statement">
+            <button>Войти</button>
+        </div>
+    {% endif %}
+</header>
+<div class="title">
+        <h1>{{ article.title | safe }}</h1>
+    </div>
+<div class="container">
+    <div class="text">
+        {{ article.text | safe }}
+    </div>
+</div>
+<div class="paginator">
+    {% if article.pk|back == '' %}
+        {% else %}
+        <a class="button_pag" href="{{ article.pk|back }}">Назад</a>
+    {% endif %}
+    {% if article.pk|next == '' %}
+        {% else %}
+        <a class="button_pag" href="{{ article.pk|next }}">Далее</a>
+    {% endif %}
+
+</div>
 </body>
 </html>
