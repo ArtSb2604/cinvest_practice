@@ -11,6 +11,8 @@ urlpatterns = [
     path('chat/', include('chat.urls')),
     path('moderator/', include('users.urls')),
     path("api/v1/users/create/", UserAPIList.as_view(), name="user_create"),
+    path('summernote/', include('django_summernote.urls')),
+    path('practicum/', include('practicum.urls')),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_URL)

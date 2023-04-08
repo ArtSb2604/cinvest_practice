@@ -1,3 +1,4 @@
+from django.core.mail import EmailMessage
 from django.http import HttpResponse
 from django.shortcuts import redirect
 from django.views import generic
@@ -74,3 +75,9 @@ class UserDetail(DetailView):
                                                        find_out=form['find_out'],
                                                        interested_internship=form['interested_internship'])
         return redirect('all_users')
+
+
+class ApplicationsAdminListView(generic.ListView):
+    model = User
+    context_object_name = 'users'
+    template_name = 'users/admin-applications.html'
