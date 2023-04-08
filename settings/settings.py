@@ -37,7 +37,15 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+CORS_ALLOWED_ORIGINS = [
+    'http://127.0.0.1:7776',
+    'https://centrinvest.kulpinov.site'
+]
 
+CSRF_TRUSTED_ORIGINS = [
+    'http://127.0.0.1:7776',
+    'https://centrinvest.kulpinov.site'
+]
 
 ROOT_URLCONF = 'settings.urls'
 
@@ -111,7 +119,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'users.User'
 
-
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.mail.ru'
 EMAIL_PORT = 2525
@@ -120,6 +127,5 @@ EMAIL_HOST_PASSWORD = "tPEJQiYwndx04dg8iiJi"
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
 
-LOGIN_URL='login'
-LOGIN_REDIRECT_URL='/practicum/article'
-
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = '/practicum/article'
