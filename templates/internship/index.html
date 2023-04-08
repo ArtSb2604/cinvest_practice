@@ -41,53 +41,48 @@
             <div>Открыт осенний набор на оплачиваемую стажировку. Подавайте заявки!</div>
         </div>
         <nav class="info-category">
-            <nav onclick="render('ios')" data-menu="ios" id="btn">iOS разработчик</nav>
-            <nav onclick="render('sis')" data-menu="sis" id="btn">Системный аналитик</nav>
-            <nav onclick="render('admin')" data-menu="admin" id="btn">Администратор баз данных</nav>
-            <nav onclick="render('bd')" data-menu="bd" id="btn">Разработчик баз данных</nav>
+            {% for i in DirectionsDesc %}
+                <nav onclick="render('{{ i.data_menu }}')" data-menu="{{ i.data_menu }}" id="btn">{{ i.title }}</nav>
+            {% endfor %}
         </nav>
         <div data-menu="ios" id="list" class="container_info-category-detailed">
-            <div class="info-category-detailed" onclick="switchFormOpen()">iOS разработчик</div>
-            <div class="info-category-detailed" onclick="switchFormOpen()">Информация</div>
-            <div class="info-category-detailed" onclick="switchFormOpen()">Информация</div>
-            <div class="info-category-detailed" onclick="switchFormOpen()">Информация</div>
-            <div class="info-category-detailed" onclick="switchFormOpen()">Информация</div>
+            {% for i in Directions %}
+                {% if i.data_menu == 'ios' %}
+                    <div class="info-category-detailed" onclick="switchFormOpen()">{{ i.directions_name }}</div>
+                {% endif %}
+            {% endfor %}
+        </div>
         </div>
         <div data-menu="sis" id="list" class="container_info-category-detailed">
-            <div class="info-category-detailed" onclick="switchFormOpen()">Системный аналитик</div>
-            <div class="info-category-detailed" onclick="switchFormOpen()">Информация</div>
-            <div class="info-category-detailed" onclick="switchFormOpen()">Информация</div>
-            <div class="info-category-detailed" onclick="switchFormOpen()">Информация</div>
-            <div class="info-category-detailed" onclick="switchFormOpen()">Информация</div>
+            {% for i in Directions %}
+                {% if i.data_menu == 'sis' %}
+                    <div class="info-category-detailed" onclick="switchFormOpen()">{{ i.directions_name }}</div>
+                {% endif %}
+            {% endfor %}
         </div>
         <div data-menu="admin" id="list" class="container_info-category-detailed">
-            <div class="info-category-detailed" onclick="switchFormOpen()">Администратор баз данных</div>
-            <div class="info-category-detailed" onclick="switchFormOpen()">Информация</div>
-            <div class="info-category-detailed" onclick="switchFormOpen()">Информация</div>
-            <div class="info-category-detailed" onclick="switchFormOpen()">Информация</div>
-            <div class="info-category-detailed" onclick="switchFormOpen()">Информация</div>
+            {% for i in Directions %}
+                {% if i.data_menu == 'admin' %}
+                    <div class="info-category-detailed" onclick="switchFormOpen()">{{ i.directions_name }}</div>
+                {% endif %}
+            {% endfor %}
         </div>
         <div data-menu="bd" id="list" class="container_info-category-detailed">
-            <div class="info-category-detailed" onclick="switchFormOpen()">Разработчик баз данных</div>
-            <div class="info-category-detailed" onclick="switchFormOpen()">Информация</div>
-            <div class="info-category-detailed" onclick="switchFormOpen()">Информация</div>
-            <div class="info-category-detailed" onclick="switchFormOpen()">Информация</div>
-            <div class="info-category-detailed" onclick="switchFormOpen()">Информация</div>
+            {% for i in Directions %}
+                {% if i.data_menu == 'bd' %}
+                    <div class="info-category-detailed" onclick="switchFormOpen()">{{ i.directions_name }}</div>
+                {% endif %}
+            {% endfor %}
         </div>
         <div class="main_prom">
             <img src="{% static 'img/main_prom.png' %}" alt="">
         </div>
     </section>
     <section class="info-skill">
-        <h1>Что надо уметь</h1>
-        <div>
-            Всем стажёрам нужны отличные знания базовых алгоритмов и структур данных, а также умение писать код на одном
-            из языков программирования. Остальные требования зависят от направления. Например, аналитику необходимо
-            хорошо знать математическую статистику и Python, а разработчику ML — основные методы машинного обучения и их
-            применение на практике. При отборе кандидатов мы обращаем внимание на анкеты и достижения. Не стесняйтесь
-            писать о своих успехах: победах на олимпиадах, высокой успеваемости, публикациях на конференциях и так
-            далее.
-        </div>
+        {% for i in TitleMain %}
+            <h1>{{ i.header }}</h1>
+            <div>{{ i.main_title }}</div>
+        {% endfor %}
     </section>
     <div class="fotter_promo">
         <img src="{% static 'img/fotter_prom.png' %}" alt="">
@@ -100,25 +95,23 @@
                 <h1>Выберите направление</h1>
                 <div class="cat-modal">
                     <div class="modal-f">
-                        <span>1.</span>
+
                         <div onclick="switchFormOpen()" class="text">iOS разработчик ></div>
                     </div>
                 </div>
                 <div class="cat-modal">
                     <div class="modal-f">
-                        <span>2.</span>
+
                         <div onclick="switchFormOpen()" class="text">Системный аналитик ></div>
                     </div>
                 </div>
                 <div class="cat-modal">
                     <div class="modal-f">
-                        <span>3.</span>
                         <div onclick="switchFormOpen()" class="text">Администратор баз данных ></div>
                     </div>
                 </div>
                 <div class="cat-modal">
                     <div class="modal-f">
-                        <span>4.</span>
                         <div onclick="switchFormOpen()" class="text">Разработчик баз данных ></div>
                     </div>
                 </div>
