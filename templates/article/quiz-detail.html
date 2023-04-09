@@ -44,22 +44,22 @@
 
                 <div class="white-box state-box quiz-info">
                     <div class="mb-2">
-                        <b>{{ i }}</b>
+                        <b style="font-size: 20px;">{{ i }}</b>
                     </div>
                     {% for q in i.get_answers %}
                             <div>
                                 <input type="radio" class="ans" id="{{ i }}-{{ q.text }}" name="ques_{{ i.pk }}" value="{{ q.text }}">
-                                <label for="${question}">{{ q.text }}</label>
+                                <label for="${question}" style="font-size: 16px;">{{ q.text }}</label>
                             </div>
                         {% endfor %}
                     {% if quiz.get_questions|length == forloop.counter %}
                         <div class="start-btn">
-                            <button type="submit" class="btn">Закончить</button>
+                            <button type="submit" class="btn btn_quiz button_pag">Закончить</button>
                         </div>
                     {% endif %}
                     {% if quiz.get_questions|length != forloop.counter %}
                         <div class="start-btn">
-                            <a href="javascript:;" onclick="futherProcess({{ forloop.counter }});" class="btn">Далее</a>
+                            <a href="javascript:;" onclick="futherProcess({{ forloop.counter }});" class="btn btn_quiz button_pag">Далее</a>
                         </div>
                     {% endif %}
                 </div>

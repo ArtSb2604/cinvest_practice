@@ -370,10 +370,20 @@ header {
 
     .testo {
     padding: 0 4%;
-    padding-bottom: 50px;
+    padding-bottom: 25px;
 }
 
     .sec_test {
         margin-top: 20px;
     }
+
+    .start-btn {
+        margin-top: 30px;
+    }
 }
+
+.btn_quiz {
+    float: right;
+
+}
+

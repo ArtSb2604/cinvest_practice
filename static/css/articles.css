@@ -5,7 +5,7 @@
 :root {
     --base: #080717;
     --text: #50b848;
-    --white: #e4e4e3;
+    --white: #fff;
     --white-btn: #fff;
 }
 
@@ -311,6 +311,12 @@ header {
         min-width: 200px;
         min-height: 100px;
     }
+
+    .list_articles {
+        padding: 0 10px;
+    }
+
+
 }
 
 @media (max-width: 400px) {

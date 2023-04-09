@@ -55,7 +55,7 @@ def user_update_status(request):
         user.set_password(password)
         user.save()
         if bool(int(request.GET['status'])):
-            email = EmailMessage('Пароль от практикума', f'Пароль: {password}', settings.EMAIL_HOST_USER,
+            email = EmailMessage('Добро пожаловать в Практикум Банка Центр-Инвест', f'Ссылка для авторизации: https://centrinvest.kulpinov.site/login/\nЛогин: {user.username} Пароль: {password}', settings.EMAIL_HOST_USER,
                                  to=[user.email])
             email.send()
         else:
