@@ -147,3 +147,176 @@ header {
     display: flex;
     flex-direction: column;
 }
+
+
+
+@media (max-width: 1000px) {
+    .info-statement {
+        font-size: 60px;
+        margin: 60px;
+    }
+
+    .form_container {
+        width: 400px;
+    }
+}
+
+@media (max-width: 1300px) {
+    .main_prom img {
+        display: none;
+    }
+
+    .modal_container {
+        width: 400px;
+    }
+
+    .modal_after {
+        bottom: 1647px;
+    }
+
+    .modal_container h1 {
+        font-size: 24px;
+    }
+
+    .cat-modal .text {
+        font-size: 24px;
+    }
+
+    .modal_back {
+        bottom: 140px;
+        left: 100px;
+    }
+}
+
+@media (max-width: 700px) {
+    header {
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        padding: 20px;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .header-promo img {
+        display: none;
+    }
+
+    .info {
+        height: 400px;
+    }
+
+    header div {
+        margin: 10px 0;
+    }
+
+    .info-statement {
+        font-size: 48px;
+        margin: 30px;
+    }
+
+}
+
+@media (max-width: 600px) {
+    .info-statement {
+        font-size: 48px;
+        margin: 30px;
+    }
+
+    .form_container {
+        width: 250px;
+    }
+
+    .form_container .text_form {
+        font-size: 18px;
+    }
+
+    .lc-form__close {
+        height: 43px;
+    }
+
+    .cat-modal .text {
+        font-size: 16px;
+    }
+
+    .modal_after {
+        display: none;
+    }
+
+    .modal_back {
+        display: none;
+    }
+
+    .modal_container h1 {
+        font-size: 18px;
+    }
+
+    .lc-modal__close {
+        height: 36px;
+    }
+
+    .modal_container {
+        width: 300px;
+        padding: 20px;
+        height: 450px;
+    }
+
+    .applic a {
+        font-size: 18px;
+        margin: auto 30px;
+    }
+
+    .applic a:before {
+        content: "+";
+        position: absolute;
+        top: -11px;
+        font-size: 40px;
+        left: -32px;
+    }
+
+    .info-category nav {
+        font-size: 18px;
+    }
+
+    .info-category-detailed {
+        font-size: 20px;
+    }
+
+    .info-skill h1 {
+        font-size: 32px;
+    }
+
+    .info-skill div {
+        font-size: 18px;
+    }
+
+    .btn {
+        width: 70%;
+    }
+}
+
+@media (max-width: 500px) {
+    .form_container {
+        width: 290px;
+        padding: 30px;
+    }
+
+    .input input {
+        width: 200px;
+    }
+
+    .input textarea {
+        max-width: 200px;
+        max-height: 200px;
+        min-width: 200px;
+        min-height: 100px;
+    }
+}
+
+@media (max-width: 400px) {
+    .modal_container {
+        width: 260px;
+        padding: 20px;
+        height: 450px;
+    }
+}

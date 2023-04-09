@@ -35,27 +35,37 @@
         </div>
     {% endif %}
 </header>
-<div class="title">
-        <h1>{{ article.title | safe }}</h1>
-    </div>
 <div class="container">
-    <div class="text">
-        {{ article.text | safe }}
-    </div>
-</div>
+<h1></h1>
+    <form class="testo" method="post">
+    {% csrf_token %}
+        {% for i in quiz.get_questions %}
+            <div class="sec_test" id="ques_{{ forloop.counter }}" style=" {% if forloop.counter == 1 %}{% else %}display: none;{% endif %}">
 
-{{ form.as_p }}
-<div class="paginator">
-    {% if article.pk|back == '' %}
-        {% else %}
-        <a class="button_pag" href="{{ article.pk|back }}">Назад</a>
-    {% endif %}
-    {% if article.pk|next == '' %}
-        <a class="button_pag" href="/practicum/article/quiz/{{ quiz.pk }}">Пройти тест</a>
-        {% else %}
-        <a class="button_pag" href="{{ article.pk|next }}">Далее</a>
-    {% endif %}
-
+                <div class="white-box state-box quiz-info">
+                    <div class="mb-2">
+                        <b>{{ i }}</b>
+                    </div>
+                    {% for q in i.get_answers %}
+                            <div>
+                                <input type="radio" class="ans" id="{{ i }}-{{ q.text }}" name="ques_{{ i.pk }}" value="{{ q.text }}">
+                                <label for="${question}">{{ q.text }}</label>
+                            </div>
+                        {% endfor %}
+                    {% if quiz.get_questions|length == forloop.counter %}
+                        <div class="start-btn">
+                            <button type="submit" class="btn">Закончить</button>
+                        </div>
+                    {% endif %}
+                    {% if quiz.get_questions|length != forloop.counter %}
+                        <div class="start-btn">
+                            <a href="javascript:;" onclick="futherProcess({{ forloop.counter }});" class="btn">Далее</a>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+    </form>
 </div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>

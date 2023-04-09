@@ -24,13 +24,12 @@ class UserInfo(forms.Form):
     find_out = forms.CharField(label='Откуда вы узнали о стажировках в Банке Центр-Инвест', max_length=100, required=False)
     interested_internship = forms.CharField(label='Почему вас заинтересовала стажировка в Банке Центр-Инвест, и чего вы от неё ждёте?', max_length=100, required=False)
     resume = forms.FileField(label='Добавьте резюме', required=False)
+    categories = forms.CharField(
+        label='Выберите направление', max_length=100,
+        required=False)
 
     def __init__(self, *args, **kwargs):
         super(UserInfo, self).__init__(*args, **kwargs)
         for visible in self.visible_fields():
             visible.field.widget.attrs['class'] = 'user-input'
 
-
-class LoginUserForm(AuthenticationForm):
-    username = forms.CharField(label='Логин', widget=forms.TextInput(attrs={'class': 'form-input'}))
-    password = forms.CharField(label='Пароль', widget=forms.PasswordInput(attrs={'class': 'form-input'}))

@@ -10,6 +10,8 @@ from django.views.generic import DetailView
 from rest_framework import generics
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication
 
+from internship.models import Directions, DirectionsDesc
+from practicum.models import Quiz, Result
 from settings import settings
 from users.forms import UserInfo
 from users.models import User
@@ -21,6 +23,18 @@ class UserAdminListView(generic.ListView):
     context_object_name = 'users'
     template_name = 'users/admin-user.html'
 
+class AdminView(generic.ListView):
+    model = User
+    context_object_name = 'users'
+    template_name = 'users/index_admin.html'
+
+    def get_context_data(self, *args, **kwargs):
+        context = super(AdminView, self).get_context_data(*args, **kwargs)
+        context['user'] = User.objects.all()
+        context['quiz'] = Quiz.objects.all()
+        context['directions'] = DirectionsDesc.objects.all()
+        context['result'] = Result.objects.all()
+        return context
 
 class CsrfExemptSessionAuthentication(SessionAuthentication):
     def enforce_csrf(self, request):
@@ -80,8 +94,7 @@ class UserDetail(DetailView):
         form = request.POST
         print(form)
         User.objects.filter(pk=form['user_pk']).update(last_name=form['last_name'], first_name=form['first_name'],
-                                                       mail=form['mail'], email=form['mail'],
-                                                       patronymic=form['patronymic'], birthdate=form['birthdate'],
+                                                       email=form['mail'], patronymic=form['patronymic'], birthdate=form['birthdate'],
                                                        city=form['city'], number_phone=form['number_phone'],
                                                        social_contact=form['social_contact'],
                                                        course=form['course'], university=form['university'],
@@ -93,7 +106,7 @@ class UserDetail(DetailView):
                                                        what_tasks=form['what_tasks'], achievements=form['achievements'],
                                                        work_experience=form['work_experience'],
                                                        find_out=form['find_out'],
-                                                       interested_internship=form['interested_internship'])
+                                                       interested_internship=form['interested_internship'], categories=form['categories'])
         return redirect('all_users')
 
 

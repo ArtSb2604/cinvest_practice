@@ -1,3 +1,4 @@
+{% load poll_extras %}
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -7,7 +8,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{% static 'css/articles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/detail.css' %}">
     <link data-n-head="ssr" rel="icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}">
 </head>
 <body>
@@ -16,9 +17,9 @@
         <img src="{% static 'img/logo.svg' %}" alt="Банк Центр-инвест">
     </div>
     <div class="catalog">
-        <nav>Направления</nav>
-        <nav>Условия</nav>
-        <nav>Отбор</nav>
+        <nav><a>Направления</a></nav>
+        <nav><a href="/practicum/article">Уроки</a></nav>
+        <nav><a>Отбор</a></nav>
     </div>
     {% if request.user.is_authenticated %}
         <div class="statement">
@@ -35,14 +36,16 @@
     {% endif %}
 </header>
 <div class="container">
-    <div class="list_articles">
-    <h2 style="color: #fff">Этап 1</h2>
-        {% for i in articles %}
-            {% if request.user.categories == i.cat %}
-                <a class="button_article" href="{% url 'ArticleDetail' i.pk %}">{{ i.title }}</a>
-            {% endif %}
-        {% endfor %}
-    </div>
+<h1 style="text-align: center; padding: 20px">Поздравляю за прохождение теста</h1>
+    <p style="text-align: center;padding-bottom: 20px;color: #6d6d6d;">Переходите в раздел 'Уроки' для прохождения следующего блока</p>
+
 </div>
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script>
+    function futherProcess(num) {
+        $("#ques_"+num).css('display', 'none')
+        $("#ques_"+(num+1)).css('display', 'block')
+    }
+</script>
 </html>

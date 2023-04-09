@@ -30,6 +30,7 @@ class User(AbstractUser):
         verbose_name='Почему вас заинтересовала стажировка в Банке Центр-Инвест, и чего вы от неё ждёте?',
         max_length=100)
     resume = models.FileField(verbose_name='Добавьте резюме', blank=True, null=True)
+    categories = models.CharField(verbose_name='Направление', max_length=100, blank=True, null=True)
 
     def __str__(self):
         return f"{self.last_name} {self.first_name} {self.patronymic}"

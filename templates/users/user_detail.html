@@ -13,10 +13,17 @@
 <body>
     <div class="section-admin">
         <div class="block-left-admin">
+            <div class="p-2 menu-left-admin">
+                <div class="menu-left-2">
+                    <div class="menu-left-3">
+                        <a href="{% url 'all_users' %}" class="text-decoration-none text-admin-menu">Пользователи</a>
+                    </div>
+                </div>
+            </div>
             <div class="p-2 menu-left-admin-active">
                 <div class="menu-left-2">
                     <div class="menu-left-3">
-                        <a href="{% url 'all_users' %}" class="text-decoration-none text-admin-menu-active">Пользователи</a>
+                        <a href="{% url 'all_applications' %}" class="text-decoration-none text-admin-menu-active">Заявки</a>
                     </div>
                 </div>
             </div>
@@ -53,6 +60,10 @@
                     <div class="p-2 user-agent-block-13">
                         <p class="user-agent-block-13-text">Почта:</p>
                         <input type="text" class="user-input-mail user-input" name="mail" placeholder="" value="{{ user.email }}">
+                    </div>
+                    <div class="p-2 user-agent-block-13">
+                        <p class="user-agent-block-13-text">Направление:</p>
+                        <input type="text" class="user-input-mail user-input" name="categories" placeholder="" value="{{ user.categories }}">
                     </div>
                 </div>
 
